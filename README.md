@@ -13,4 +13,4 @@ To use this template, your computer needs:
 python app.py
 ```
 
-# EPAM.Flask
+# EPAM_Flask
