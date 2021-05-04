@@ -1,3 +1,5 @@
+# FlaskApp
+
 Simple application with authentication and CRUD functionality using the Python Flask micro-framework
 
 ## Installation
@@ -13,4 +15,4 @@ To use this template, your computer needs:
 python app.py
 ```
 
-# EPAM_Flask
+# EPAM.Flask
