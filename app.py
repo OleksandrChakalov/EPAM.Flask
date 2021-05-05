@@ -4,6 +4,7 @@ from flask_mysqldb import MySQL
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
+from newsapi import NewsApiClient
 
 app = Flask(__name__)
 app.secret_key = "super secret key"
@@ -18,6 +19,30 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 mysql = MySQL(app)
 
 Articles = Articles()
+
+
+# API
+@app.route('/api')
+def newsapi():
+    newsapi = NewsApiClient(api_key="b0f75ce660c0466a9a98c2478f8abb62")
+    topheadlines = newsapi.get_top_headlines(sources="bbc-news")
+
+    articles = topheadlines['articles']
+
+    desc = []
+    news = []
+    img = []
+
+    for i in range(len(articles)):
+        myarticles = articles[i]
+
+        news.append(myarticles['title'])
+        desc.append(myarticles['description'])
+        img.append(myarticles['urlToImage'])
+
+    mylist = zip(news, desc, img)
+
+    return render_template('index.html', context=mylist)
 
 
 # Index
@@ -87,7 +112,6 @@ def register():
         email = form.email.data
         username = form.username.data
         password = sha256_crypt.encrypt(str(form.password.data))
-
 
         # Create cursor
         cur = mysql.connection.cursor()
