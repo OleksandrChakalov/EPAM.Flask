@@ -1,8 +1,16 @@
-language: python
-python:
- - 3.6
- - 3.8
- - 3.9
-script:
- - python python/pythonEvaluatorTest.py
- - python python/arepldumptest.py
+{
+  "language": "python",
+  "os": [
+    "windows"
+  ],
+  "dist": "xenial",
+  "python": [
+    "3.9.4"
+  ],
+  "install": [
+    "pip install -r requirements.txt"
+  ],
+  "script": [
+    "pytest"
+  ]
+}
