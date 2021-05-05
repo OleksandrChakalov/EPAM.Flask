@@ -1,13 +1,8 @@
-#language: python
-#
-#python: "3.9"
-#dist: xenial
-#sudo: true
-#install:
-#  - pip install -r requirements.txt
-## command to run tests
-##script:
-##  - pytest
 language: python
+python:
+ - 3.6
+ - 3.8
+ - 3.9
 script:
-  - pytest
+ - python python/pythonEvaluatorTest.py
+ - python python/arepldumptest.py
