@@ -8,20 +8,6 @@
 ## command to run tests
 ##script:
 ##  - pytest
-
-{
-  "language": "python",
-  "os": [
-    "linux"
-  ],
-  "dist": "xenial",
-  "python": [
-    "3.9.4"
-  ],
-  "install": [
-    "pip install -r requirements.txt"
-  ],
-  "script": [
-    "pytest"
-  ]
-}
+language: python
+script:
+  - pytest
