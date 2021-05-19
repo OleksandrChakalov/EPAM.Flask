@@ -15,6 +15,7 @@
 #  ]
 #}
 language: python
+os: windows
 python:
   - "2.7"
   - "3.4"
