@@ -9,7 +9,6 @@
       <th>ID</th>
       <th>Title</th>
       <th>Author</th>
-      <th>Date</th>
       <th></th>
       <th></th>
     </tr>
@@ -18,7 +17,6 @@
         <td>{{article.id}}</td>
         <td>{{article.title}}</td>
         <td>{{article.author}}</td>
-        <td>{{article.create_date}}</td>
         <td><a href="edit_article/{{article.id}}" class="btn btn-default pull-right">Edit</a></td>
         <td>
           <form action="{{url_for('delete_article', id=article.id)}}" method="post">
